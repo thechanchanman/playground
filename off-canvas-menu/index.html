@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Off canvas menu</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8" lang="en">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><h1 class="brand"><a href="#">MY SITE</a></h1></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <div class="text">
+      <h1>Off canvas - sliding menu</h1>
+      <a href="#" class="menu-toggle">Menu</a>
+    </div>
+  </div>
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var menu = 'close';
+      var pos = $('.container').css('transform, translateX');
+      $('.menu-toggle').click(function() {
+        //$('body').toggleClass('noScrollbars');
+        if(menu === 'close') {
+          $('.navbar').css('transform', 'translate(0, 0)');
+          $('.container').css('transform', 'translate(30%, 0)');
+          menu = 'open';
+        }else {
+          $('.navbar').css('transform', 'translate(-100%, 0)');
+          $('.container').css('transform', 'translate(0, 0)');
+          menu = 'close';
+        }
+        if( pos != 0 ) {
+          $('body').addClass('noScrollbars');
+        } else {
+          $('body').removeClass('noScrollbars');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

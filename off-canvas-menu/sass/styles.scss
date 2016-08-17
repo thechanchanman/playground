@@ -1,0 +1,98 @@
+$bodyFontFamily: verdana, sans-serif;
+$bodyLinkColor: #275c3d;
+$bodyLinkColorHover: #48a770;
+$h1FontFamily: impact, fantasy;
+$h2FontFamily: georgia, serif;
+$navbarFontFamily: verdana, sans-serif;
+$navbarBG: #48a770;
+$navbarLinkColor: #eee;
+$navbarLinkColorHover: #275c3d;
+$brandFontFamily: impact, fantasy;
+$brandColor: #275c3d;
+$brandColorHover: lighten($brandColor, 5%);
+$navbarListBorder: 1px solid #398659;
+$containerBG: #f3efe0;
+@import "compass";
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+a {
+  color: $bodyLinkColor;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: $bodyLinkColorHover;
+  }
+  .navbar & {
+    display: block;
+    padding: 20px 0;
+    font-family: $navbarFontFamily;
+    color: $navbarLinkColor;
+    &:hover {
+      text-decoration: none;
+      color: $navbarLinkColorHover;
+      background: lighten($navbarBG, 5%);
+    }
+  }
+  .brand & {
+    font-family: $brandFontFamily;
+    color: $brandColor;
+    font-size: 1.4em;
+      &:hover {
+        color: $brandColorHover;
+        text-decoration: none;
+    }
+  }
+}
+
+/*********************************
+  .container
+*********************************/
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: $containerBG;
+  text-align: center;
+  @include transition (all 1s ease);
+}
+
+.text {
+  padding-top: 20px;
+  color: #a4cdac;
+  .menu-toggle {
+    display: block;
+    margin: 20px 0 0 0;
+    font-size: 1.2em;
+  }
+}
+
+.noScrollbars {
+  overflow-x: hidden;
+}
+
+/*********************************
+  .navbar
+*********************************/
+.navbar {
+  position: fixed;
+  height: 100%;
+  width: 30%;
+  top: 0;
+  left: 0;
+  background: $navbarBG;
+  overflow: hidden;
+  @include translate (-100%, 0);
+  @include transition (all 1s ease);
+  li {
+    padding: 0;
+    text-align: center;
+    border-bottom: $navbarListBorder;
+  }
+}
